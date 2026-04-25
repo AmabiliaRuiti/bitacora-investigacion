@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitácora de Investigación: Portal Educativo Mendoza</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        preziBlue: '#002B49', 
+                        preziCyan: '#00B4D8', 
+                        preziCoral: '#FF7F50', 
+                        preziLight: '#F0F9FF',
+                        navButtonBlue: '#003D66',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        .nav-btn { transition: all 0.3s ease; border: 2px solid transparent; }
+        .nav-btn:hover { border-bottom-color: #FF7F50; color: #FF7F50; transform: translateY(-2px); }
+        .card-accent-blue { border-top: 6px solid #002B49; }
+        .card-accent-coral { border-top: 6px solid #FF7F50; }
+        .idea-clave-box { background-color: #002B49; color: white; padding: 1rem 1.5rem; border-radius: 0.5rem; display: inline-block; margin-top: 1rem; font-weight: 500; }
+        .quote-box { border-left: 4px solid #00B4D8; background-color: rgba(0, 180, 216, 0.05); padding: 1rem; font-style: italic; font-size: 0.875rem; color: #475569; }
+        .tension-tag { background-color: #FF7F50; color: white; padding: 0.2rem 0.6rem; border-radius: 9999px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; }
+        .feature-icon { font-size: 1.5rem; margin-bottom: 0.5rem; display: block; }
+        .texto-propuesta { font-size: 0.95rem; line-height: 1.7; color: #334155; }
+        
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, padding 0.3s ease;
+        }
+        .accordion-item.active .accordion-content {
+            max-height: 2000px;
+            padding-bottom: 2rem;
+        }
+        .accordion-header {
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .accordion-header:hover {
+            background-color: #f8fafc;
+        }
+        .accordion-icon {
+            transition: transform 0.3s ease;
+        }
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="bg-preziLight text-slate-800 min-h-screen">
+
+    <nav class="sticky top-0 z-50 bg-preziBlue text-white shadow-xl border-b border-white/10">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-wrap justify-center md:justify-between items-center py-4 gap-4">
+                <div class="font-bold text-xl flex items-center gap-2">
+                    <span class="text-preziCyan">●</span> Bitácora de Investigación
+                </div>
+                <div class="flex flex-wrap justify-center gap-2 md:gap-3">
+                    <a href="#contexto" class="nav-btn px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-lg bg-navButtonBlue hover:bg-white/10">Contexto</a>
+                    <a href="#pedagogico" class="nav-btn px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-lg bg-navButtonBlue hover:bg-white/10">Dispositivo</a>
+                    <a href="#tensiones" class="nav-btn px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-lg bg-navButtonBlue hover:bg-white/10">Tensiones</a>
+                    <a href="#diversidad" class="nav-btn px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-lg bg-navButtonBlue hover:bg-white/10">Arquitectura</a>
+                    <a href="#transmedia" class="nav-btn px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-lg bg-preziCyan text-preziBlue hover:bg-white">Propuesta 🚀</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative overflow-hidden py-28 bg-preziBlue text-white border-b-8 border-preziCyan">
+        <div class="max-w-5xl mx-auto px-6 relative z-10 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                Análisis crítico del espacio digital de efemérides en el actual <span class="text-preziCyan italic">Portal Educativo Mendoza</span>
+            </h1>
+        </div>
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-preziCyan opacity-10 rounded-full"></div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 py-16 space-y-20">
+
+        <!-- 1. Contexto de Investigación -->
+        <section id="contexto" class="scroll-mt-32">
+            <div class="bg-white rounded-3xl shadow-lg overflow-hidden card-accent-blue p-8 md:p-12">
+                <div class="flex flex-col gap-6">
+                    <div class="text-preziCyan font-bold text-6xl mb-2">01</div>
+                    <h2 class="text-3xl font-bold text-preziBlue mb-4">Contexto de Investigación</h2>
+                    <div class="space-y-6 text-slate-700 leading-relaxed text-lg max-w-4xl">
+                        <p>
+                            La investigación se enmarca en el proceso de transformación educativa iniciado en <strong>Mendoza a partir del año 2000</strong>, con la incorporación de tecnologías digitales en las escuelas.
+                        </p>
+                        <p>
+                            El antecedente inmediato es el <strong>Programa de Informática Educativa (PIE)</strong>, que sentó las bases para el desarrollo del Portal Educativo Mendoza.edu.ar. Este portal institucional se consolidó como espacio de referencia para la comunidad escolar, integrando recursos, servicios y contenidos pedagógicos.
+                        </p>
+                        <blockquote class="border-l-4 border-preziCyan pl-6 py-2 italic text-slate-600 bg-preziLight/30 rounded-r-lg">
+                            Mendoza.edu.ar representaba la puerta de entrada al sistema educativo [...] Habiamos nacido como Informática Educativa y queríamos que el sitio no perdiera lo educativo. Si bien, cuando nos aceptaron como portal el estilo era más informativo de tipo institucional, teníamos convicciones que queríamos respetar y nos movían. (Protocolo n°4)
+                        </blockquote>
+                    </div>
+                </div>
+                <div class="idea-clave-box mt-8">
+                    💡 Idea clave: El portal como dispositivo educativo y tecnológico.
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Las Efemérides como Dispositivo Pedagógico -->
+        <section id="pedagogico" class="scroll-mt-32">
+            <div class="bg-white rounded-3xl shadow-lg overflow-hidden card-accent-blue p-8 md:p-12 border-r-8 border-preziCyan">
+                <div class="text-preziCyan font-bold text-6xl mb-4">02</div>
+                <h2 class="text-3xl font-bold text-preziBlue mb-8 italic">El espacio de Efemérides: entre la norma y la agenda</h2>
+                
+                <div class="grid md:grid-cols-1 gap-10">
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-bold text-preziCoral flex items-center gap-2 border-b border-slate-100 pb-2">
+                            <span>📝</span> Matriz del contenido
+                        </h3>
+                        <p class="text-slate-700">
+                            Desde su origen en 2002, el Portal nació con una misión tecnológica: propiciar la interrelación escolar. Sin embargo, en la práctica, el espacio de Efemérides se configuró para resolver una necesidad docente pragmática: <strong>el acto escolar y la cartelera.</strong>
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="quote-box">
+                                "¿Qué queríamos tener? Cosas que fueran útiles para los docentes (...) contenido lindo como para armar carteleras y actos." (Protocolo n°1)
+                            </div>
+                            <div class="quote-box">
+                                "Si tenía que armar un acto, por lo menos tuviera una matriz como para saber qué es lo que tiene que hacer." (Protocolo n°6)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50 p-6 rounded-2xl">
+                        <h3 class="text-xl font-bold text-preziBlue mb-4 flex items-center gap-2">
+                            <span>⏱️</span> Jerarquización del calendario
+                        </h3>
+                        <div class="grid md:grid-cols-3 gap-6 text-sm">
+                            <div class="bg-white p-4 rounded-lg shadow-sm">
+                                <span class="bg-preziBlue text-white px-2 py-1 rounded text-[10px] uppercase font-bold block w-fit mb-2">Forma 1</span>
+                                <p class="font-bold mb-1">Hitos de la Nación</p>
+                                <p class="text-slate-500 italic">25 de mayo, 9 de julio, 17 de agosto.</p>
+                                <p class="mt-2">Presididos por banderas, himno nacional y actos formales.</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm">
+                                <span class="bg-preziCyan text-preziBlue px-2 py-1 rounded text-[10px] uppercase font-bold block w-fit mb-2">Forma 2</span>
+                                <p class="font-bold mb-1">Consolidación y Local</p>
+                                <p class="text-slate-500 italic">24 de marzo, 2 de abril, Patrono Santiago.</p>
+                                <p class="mt-2">Conmemoraciones de derechos y realidades provinciales.</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm">
+                                <span class="bg-slate-200 text-slate-600 px-2 py-1 rounded text-[10px] uppercase font-bold block w-fit mb-2">Otros</span>
+                                <p class="font-bold mb-1">Temáticas Mensuales</p>
+                                <p class="text-slate-500 italic">Vendimia, Salud Mental, Lectura.</p>
+                                <p class="mt-2">Recordadas en carteleras y espacios comunes o virtuales.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="idea-clave-box mt-10 bg-preziCoral">
+                    📅 Idea clave: El calendario escolar actúa como un dispositivo normativo que planifica el tiempo y jerarquiza los valores.
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Tensiones Críticas -->
+        <section id="tensiones" class="scroll-mt-32">
+            <div class="bg-preziBlue text-white rounded-3xl shadow-2xl p-8 md:p-12 relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-8 text-6xl opacity-10 font-bold">💥</div>
+                <div class="text-preziCyan font-bold text-6xl mb-4">03</div>
+                <h2 class="text-3xl font-bold mb-12">Tensiones en la construcción del entorno</h2>
+                
+                <div class="grid md:grid-cols-2 gap-12 relative z-10">
+                    <div class="space-y-8">
+                        <div>
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="tension-tag">Narrativa</span>
+                                <h3 class="text-xl font-semibold">Linealidad vs. Lectura Crítica</h3>
+                            </div>
+                            <p class="text-slate-300 leading-relaxed">
+                                Las efemérides se presentan como <strong>hechos cerrados</strong>. Prevalece una lógica cronológica, lineal y descriptiva. La reconstrucción se apoya en hitos y personajes exaltados (San Martín y Sarmiento), sin promover una mirada situada.
+                            </p>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="tension-tag">Territorio</span>
+                                <h3 class="text-xl font-semibold">Global vs. Comunitario</h3>
+                            </div>
+                            <p class="text-slate-300 leading-relaxed">
+                                Existe una notable <strong>falta de territorialización</strong>. Los contenidos rara vez se vinculan con las culturas escolares locales o las memorias comunitarias de Mendoza.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white/5 p-8 rounded-2xl border border-white/10 space-y-6">
+                        <h3 class="text-preziCyan font-bold uppercase tracking-widest text-sm italic">Desfase Curricular</h3>
+                        <div class="space-y-4">
+                            <div class="flex gap-4">
+                                <div class="text-preziCoral text-xl font-bold">✕</div>
+                                <div>
+                                    <p class="text-xs text-preziCyan font-bold uppercase">En el Portal</p>
+                                    <p class="text-sm">Nuevas temáticas basadas en cronología legislativa o "grandes mujeres".</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="text-green-400 text-xl font-bold">✓</div>
+                                <div>
+                                    <p class="text-xs text-green-400 font-bold uppercase">Lo que dice el Diseño Curricular Provincial</p>
+                                    <p class="text-sm italic">Multiperspectividad y desnaturalización de discursos hegemónicos.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Arquitectura y Formatos Narrativos -->
+        <section id="diversidad" class="scroll-mt-32">
+            <div class="bg-white rounded-3xl shadow-lg overflow-hidden card-accent-coral p-8 md:p-12">
+                <div class="text-preziCoral font-bold text-6xl mb-4">04</div>
+                <h2 class="text-3xl font-bold text-preziBlue mb-8 italic">Arquitectura del sitio y diversidad narrativa</h2>
+                
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div class="space-y-6">
+                        <div class="bg-slate-50 p-6 rounded-2xl border-l-4 border-preziCoral">
+                            <h3 class="font-bold text-preziBlue mb-3 flex items-center gap-2">
+                                <span>📰</span> Lógica de Portal de Noticias
+                            </h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                La plataforma actual mantiene una estructura comunicativa institucional. Esto genera que el <strong>contenido didáctico quede escondido</strong> dentro de menús de opciones jerarquizados por destinatarios.
+                            </p>
+                        </div>
+                        <div class="bg-slate-50 p-6 rounded-2xl border-l-4 border-preziCyan">
+                            <h3 class="font-bold text-preziBlue mb-3 flex items-center gap-2">
+                                <span>📄</span> Predominio del Texto Plano
+                            </h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                Cada efeméride se organiza invariablemente bajo un <strong>texto plano introductorio</strong> acompañado de una lista de "materiales de interés". El formato no varía entre conmemoraciones.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col justify-center bg-preziBlue text-white p-8 rounded-3xl">
+                        <h3 class="text-xl font-bold mb-6 text-preziCyan">La brecha de formatos</h3>
+                        <p class="text-sm text-blue-100 mb-8 italic">Existe una baja presencia de formatos que enriquezcan la experiencia estética y pedagógica:</p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-white/10 p-4 rounded-xl text-center opacity-50 grayscale">
+                                <span class="feature-icon">🎙️</span>
+                                <p class="text-[10px] uppercase font-bold">Audio / Podcast</p>
+                            </div>
+                            <div class="bg-white/10 p-4 rounded-xl text-center opacity-50 grayscale">
+                                <span class="feature-icon">🎮</span>
+                                <p class="text-[10px] uppercase font-bold">Interactivos</p>
+                            </div>
+                            <div class="bg-white/10 p-4 rounded-xl text-center opacity-75">
+                                <span class="feature-icon">🎬</span>
+                                <p class="text-[10px] uppercase font-bold">Video</p>
+                            </div>
+                            <div class="bg-white/20 p-4 rounded-xl text-center border border-preziCyan">
+                                <span class="feature-icon">✍️</span>
+                                <p class="text-[10px] uppercase font-bold">Texto Plano</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="idea-clave-box mt-10">
+                    🏛️ Idea clave: La arquitectura institucional del portal condiciona y limita la innovación en las narrativas pedagógicas.
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Propuesta Transmedia -->
+        <section id="transmedia" class="scroll-mt-32">
+            <div class="bg-white rounded-3xl shadow-xl overflow-hidden card-accent-coral border-t-8 border-preziCyan">
+                <div class="p-8 md:p-12 pb-4">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="text-preziCyan font-bold text-7xl">05</div>
+                        <h2 class="text-4xl font-bold uppercase tracking-tighter text-preziBlue">Hacia un Laboratorio de Indagación Crítica:<br>Propuesta Transmedia</h2>
+                    </div>
+                    <p class="texto-propuesta mb-8">
+                        A partir de las tensiones observadas se propone un análisis de lo existente a los efectos de hacer propuestas alternativas a ello. Serán tomados algunos ejemplos para ponerlos en tensión con los enfoques y abordajes que pretendemos desplegar en la propuesta que se realizará en este TFI.
+                    </p>
+                </div>
+
+                <div class="divide-y divide-slate-100">
+                    <div class="accordion-item">
+                        <div class="accordion-header flex justify-between items-center p-8 md:px-12 bg-slate-50/50" onclick="toggleAccordion(this)">
+                            <h3 class="text-xl md:text-2xl font-bold text-preziBlue flex items-center gap-3">
+                                <span class="bg-preziCyan/20 text-preziBlue w-8 h-8 rounded-full flex items-center justify-center text-sm">1</span>
+                                Análisis de la Visibilidad de Memorias y Subalternidad
+                            </h3>
+                            <span class="accordion-icon text-preziCoral text-2xl font-bold">▼</span>
+                        </div>
+                        <div class="accordion-content px-8 md:px-12">
+                            <div class="texto-propuesta pt-4 space-y-4">
+                                <p>
+                                    Se observa que las voces históricas incluidas son limitadas presentando una escasa diversidad narrativa. En conmemoraciones como las del 24 de marzo, 12 de octubre, 10 de enero (Ley Micaela) y el día de la Lengua Materna, el Portal promueve una lógica de repositorio que prioriza hitos normativos y voces institucionales.
+                                </p>
+                                <div class="grid md:grid-cols-3 gap-4 mt-4">
+                                    <div class="bg-white p-4 rounded-xl shadow-sm border-t-4 border-preziCoral">
+                                        <h4 class="font-bold text-sm text-preziBlue mb-2">Género y ESI</h4>
+                                        <p class="text-xs text-slate-600">Falta de vinculación con el contexto; invisibilización de la complejidad social y las subjetividades.</p>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-xl shadow-sm border-t-4 border-preziCyan">
+                                        <h4 class="font-bold text-sm text-preziBlue mb-2">Diversidad Cultural</h4>
+                                        <p class="text-xs text-slate-600">Marcos tradicionales que desconocen a los pueblos indígenas como actores políticos activos.</p>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-xl shadow-sm border-t-4 border-preziBlue">
+                                        <h4 class="font-bold text-sm text-preziBlue mb-2">Hispanismo</h4>
+                                        <p class="text-xs text-slate-600">Marginalización de la diversidad lingüística local en favor de una perspectiva centralista de la RAE.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header flex justify-between items-center p-8 md:px-12" onclick="toggleAccordion(this)">
+                            <h3 class="text-xl md:text-2xl font-bold text-preziBlue flex items-center gap-3">
+                                <span class="bg-preziCyan/20 text-preziBlue w-8 h-8 rounded-full flex items-center justify-center text-sm">2</span>
+                                Revalorización de la Territorialización
+                            </h3>
+                            <span class="accordion-icon text-preziCoral text-2xl font-bold">▼</span>
+                        </div>
+                        <div class="accordion-content px-8 md:px-12">
+                            <div class="texto-propuesta pt-4">
+                                <p class="mb-6">
+                                    Avanzamos hacia una recuperación de lo local frente a la mirada de Buenos Aires. Las conmemoraciones reflejan realidades provinciales vinculadas directamente con los actores escolares mediante recursos específicos.
+                                </p>
+                                <div class="bg-preziBlue text-white p-6 rounded-2xl space-y-4 mb-4">
+                                    <div class="flex flex-col md:flex-row gap-6">
+                                        <div class="flex-1">
+                                            <h4 class="text-preziCyan font-bold mb-2">Identidad Provincial</h4>
+                                            <p class="text-sm text-blue-100">Hitos como la Fundación de Mendoza y el Mes Sanmartiniano conectan con la realidad regional a través de múltiples lenguajes (Crónicas de Nuestra Identidad).</p>
+                                        </div>
+                                        <div class="flex-1">
+                                            <h4 class="text-preziCyan font-bold mb-2">Sentidos Ambientales</h4>
+                                            <p class="text-sm text-blue-100">La Ciudadanía del Agua y la Prevención Sísmica activan la valoración del patrimonio natural y la conciencia territorial (Aqualibro).</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="italic text-slate-500 text-sm">
+                                    "¿Cómo vincular estas conmemoraciones con el contexto escolar inmediato? El enfoque debe cambiar de un repositorio curado a un laboratorio de indagación crítica."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header flex justify-between items-center p-8 md:px-12 bg-slate-50/50" onclick="toggleAccordion(this)">
+                            <h3 class="text-xl md:text-2xl font-bold text-preziBlue flex items-center gap-3">
+                                <span class="bg-preziCyan/20 text-preziBlue w-8 h-8 rounded-full flex items-center justify-center text-sm">3</span>
+                                La Mutación Didáctica
+                            </h3>
+                            <span class="accordion-icon text-preziCoral text-2xl font-bold">▼</span>
+                        </div>
+                        <div class="accordion-content px-8 md:px-12">
+                            <div class="texto-propuesta pt-4 space-y-6">
+                                <p>
+                                    La didáctica transmedia permite romper con la linealidad del contenido generando una expansión de la narrativa. Se abandona la premisa de la efeméride como "suceso de un día" para transformarla en mundos narrativos heterogéneos.
+                                </p>
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div class="border-l-4 border-preziCyan pl-4">
+                                        <h4 class="font-bold text-preziBlue">Formatos y Plataformas</h4>
+                                        <p class="text-sm text-slate-600">Uso de hilos en X, microcontenidos en Instagram/TikTok y podcasts para incluir voces subalternas y microhistorias cercanas.</p>
+                                    </div>
+                                    <div class="border-l-4 border-preziCoral pl-4">
+                                        <h4 class="font-bold text-preziBlue">Co-construcción</h4>
+                                        <p class="text-sm text-slate-600">El estudiante como re-creador de contenidos, socializando remixados, videos y registros de historia oral en red.</p>
+                                    </div>
+                                </div>
+                                <blockquote class="bg-preziLight p-6 rounded-xl italic border border-preziCyan/30">
+                                    Este nuevo abordaje propone transformar la efeméride de un retrato estático a un laboratorio donde convergen las voces de los marginados, el pulso de la vida diaria y la capacidad creativa de los alumnos.
+                                </blockquote >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-8 md:p-12 pt-4">
+                    <div class="idea-clave-box w-full text-center py-6 bg-preziBlue">
+                        🚀 Propuesta: De un repositorio de contenido curado a un territorio de experimentación transmedia vivo y expansivo.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-preziBlue text-white py-16 px-6 border-t border-white/10">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
+            <div class="flex-1 text-center md:text-left">
+                <p class="text-preziCyan font-bold text-2xl tracking-tight mb-3">Bitácora de Investigación</p>
+                <div class="text-xs leading-relaxed text-blue-200/80 max-w-xl mx-auto md:mx-0">
+                    <a href="https://ejemplo.com" class="hover:text-preziCyan transition-colors underline decoration-preziCyan/30">Análisis crítico del espacio digital de efemérides en el actual Portal Educativo Mendoza</a> 
+                    © 2026 by <a href="https://ejemplo.com" class="hover:text-preziCyan transition-colors underline decoration-preziCyan/30">Amabilia Ruiti</a> 
+                    is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" class="hover:text-preziCyan transition-colors underline decoration-preziCyan/30">CC BY-NC-ND 4.0</a>
+                    <div class="mt-3 flex justify-center md:justify-start items-center gap-1 opacity-80">
+                        <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="CC" class="h-5 w-5">
+                        <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="BY" class="h-5 w-5">
+                        <img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="NC" class="h-5 w-5">
+                        <img src="https://mirrors.creativecommons.org/presskit/icons/nd.svg" alt="ND" class="h-5 w-5">
+                    </div>
+                </div>
+            </div>
+            <div class="text-sm text-blue-200 text-center md:text-right shrink-0 space-y-1">
+                <p class="font-bold text-white text-base">Autora: Amabilia Ruiti</p>
+                <p class="italic">Maestría en Enseñanza en Escenarios Digitales</p>
+                <p class="pt-2 text-preziCyan font-semibold">Mendoza, Argentina • 2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleAccordion(header) {
+            const item = header.parentElement;
+            const isActive = item.classList.contains('active');
+            
+            document.querySelectorAll('.accordion-item').forEach(el => {
+                el.classList.remove('active');
+            });
+
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
